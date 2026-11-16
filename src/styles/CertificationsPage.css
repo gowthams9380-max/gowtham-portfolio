@@ -1,0 +1,765 @@
+/* ==========================================================================
+   CERTIFICATIONS PAGE — LUXURY EDITORIAL DECK & GALLERY
+   Inspired by Pinterest Gallery & Minimalist Luxury Editorial
+   ========================================================================== */
+
+.cert-page-root {
+  min-height: 100vh;
+  background: var(--bg-cream-radial, radial-gradient(circle at 72% 32%, #ffffff 0%, #f7f5f0 55%, #ede8de 100%));
+  color: var(--text-dark, #121212);
+  font-family: var(--font-sans, 'Plus Jakarta Sans', sans-serif);
+  position: relative;
+  overflow-x: hidden;
+  padding-bottom: 120px;
+}
+
+/* Page Top Header */
+.cert-page-header {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 40px 24px 20px 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  position: relative;
+  z-index: 10;
+}
+
+.cert-page-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(229, 155, 16, 0.12);
+  border: 1px solid rgba(229, 155, 16, 0.35);
+  color: #925800;
+  padding: 6px 16px;
+  border-radius: 30px;
+  font-family: var(--font-mono, 'Space Grotesk', monospace);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+}
+
+.cert-page-title {
+  font-family: var(--font-serif, 'Playfair Display', Georgia, serif);
+  font-size: clamp(34px, 4.5vw, 60px);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1.05;
+  color: var(--text-dark, #121212);
+  margin-bottom: 14px;
+}
+
+.cert-page-subtitle {
+  font-size: 16px;
+  color: var(--text-body, #4a4742);
+  max-width: 640px;
+  line-height: 1.6;
+}
+
+/* ==========================================================================
+   DECK / STACK VIEW (INITIAL STATE)
+   ========================================================================== */
+.deck-stage-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 640px;
+  padding: 40px 20px;
+  position: relative;
+  perspective: 1200px;
+}
+
+.deck-cards-wrapper {
+  position: relative;
+  width: 380px;
+  height: 540px;
+  cursor: pointer;
+  transform-style: preserve-3d;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Gentle breathing float animation */
+@keyframes deckBreathe {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-10px) rotate(0.4deg);
+  }
+}
+
+.deck-cards-wrapper.breathing {
+  animation: deckBreathe 4.5s ease-in-out infinite;
+}
+
+.deck-cards-wrapper:hover {
+  transform: translateY(-6px) scale(1.02);
+}
+
+/* Individual card in stack */
+.stacked-card-layer {
+  position: absolute;
+  inset: 0;
+  border-radius: 28px;
+  background: #ffffff;
+  border: 1px solid rgba(30, 25, 20, 0.08);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.07);
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  pointer-events: none;
+  overflow: hidden;
+}
+
+/* Subtle stack fan out on hover */
+.deck-cards-wrapper:hover .stacked-card-layer.layer-1 {
+  transform: translate(-14px, 12px) rotate(-8deg) !important;
+}
+.deck-cards-wrapper:hover .stacked-card-layer.layer-2 {
+  transform: translate(16px, 14px) rotate(9deg) !important;
+}
+.deck-cards-wrapper:hover .stacked-card-layer.layer-3 {
+  transform: translate(-8px, -10px) rotate(-4deg) !important;
+}
+.deck-cards-wrapper:hover .stacked-card-layer.layer-4 {
+  transform: translate(10px, -8px) rotate(6deg) !important;
+}
+
+/* FRONT CARD */
+.front-deck-card {
+  position: absolute;
+  inset: 0;
+  border-radius: 28px;
+  background: linear-gradient(145deg, #ffffff 0%, #fbf9f4 100%);
+  border: 1.5px solid rgba(229, 155, 16, 0.4);
+  box-shadow: 0 24px 60px rgba(25, 20, 15, 0.12);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 36px 30px;
+  z-index: 10;
+  pointer-events: auto;
+  user-select: none;
+}
+
+.front-card-header {
+  text-align: center;
+}
+
+.front-card-label {
+  font-family: var(--font-mono, 'Space Grotesk', monospace);
+  font-size: 11.5px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  color: var(--gold, #e59b10);
+  text-transform: uppercase;
+}
+
+.front-card-heading {
+  font-family: var(--font-serif, 'Playfair Display', Georgia, serif);
+  font-size: 32px;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: #111111;
+  margin-top: 6px;
+  line-height: 1.15;
+}
+
+.front-card-subheading {
+  font-size: 13.5px;
+  color: #77746e;
+  margin-top: 4px;
+}
+
+/* Badge Cluster Constellation on Front Card */
+.badge-cluster-area {
+  position: relative;
+  width: 100%;
+  height: 240px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 10px 0;
+}
+
+.cluster-center-ring {
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  border: 1px dashed rgba(229, 155, 16, 0.35);
+  animation: spinSlow 30s linear infinite;
+}
+
+@keyframes spinSlow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.cluster-logo-bubble {
+  position: absolute;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: #ffffff;
+  border: 1.5px solid rgba(229, 155, 16, 0.3);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.cluster-logo-bubble:hover {
+  transform: scale(1.15);
+  box-shadow: 0 10px 24px rgba(229, 155, 16, 0.3);
+  border-color: var(--gold, #e59b10);
+}
+
+/* Front Card Footer CTA */
+.front-card-footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.tap-explore-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--gold, #e59b10);
+  color: #111111;
+  font-family: var(--font-mono, 'Space Grotesk', monospace);
+  font-size: 12.5px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 12px 24px;
+  border-radius: 30px;
+  box-shadow: 0 8px 24px rgba(229, 155, 16, 0.35);
+  transition: all 0.25s ease;
+}
+
+.front-deck-card:hover .tap-explore-pill {
+  background: #cf8300;
+  color: #ffffff;
+  transform: translateY(-2px);
+  box-shadow: 0 12px 28px rgba(229, 155, 16, 0.45);
+}
+
+.front-card-count {
+  font-size: 12px;
+  font-weight: 600;
+  color: #8c8982;
+}
+
+/* ==========================================================================
+   CONTROLS BAR (Active during grid view)
+   ========================================================================== */
+.cert-controls-bar {
+  max-width: 1240px;
+  margin: 0 auto 36px auto;
+  padding: 0 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 16px;
+  position: sticky;
+  top: 80px;
+  z-index: 50;
+}
+
+.controls-glass-panel {
+  background: rgba(255, 255, 255, 0.88);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.9);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.05);
+  border-radius: 40px;
+  padding: 8px 18px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.stack-back-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: #111111;
+  color: #ffffff;
+  font-family: var(--font-mono, 'Space Grotesk', monospace);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  padding: 10px 22px;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
+}
+
+.stack-back-btn:hover {
+  background: var(--gold, #e59b10);
+  color: #111111;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(229, 155, 16, 0.35);
+}
+
+.controls-status-text {
+  font-size: 13.5px;
+  font-weight: 600;
+  color: #66635c;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.controls-status-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #16a34a;
+  box-shadow: 0 0 0 3px rgba(22, 163, 74, 0.2);
+}
+
+/* Category Filter Pills in Controls Bar */
+.controls-filter-group {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  overflow-x: auto;
+  max-width: 60%;
+  padding: 4px 0;
+}
+
+.control-filter-pill {
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+  color: #55524c;
+  background: #f4f2ea;
+  border: 1px solid rgba(0, 0, 0, 0.04);
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all 0.2s ease;
+}
+
+.control-filter-pill:hover {
+  color: #111111;
+  background: #eae7dc;
+}
+
+.control-filter-pill.active {
+  background: var(--gold, #e59b10);
+  color: #111111;
+  font-weight: 700;
+}
+
+/* ==========================================================================
+   GALLERY GRID (PINTEREST / EDITORIAL CARD STYLE)
+   ========================================================================== */
+.cert-gallery-container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.cert-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+}
+
+@media (min-width: 1400px) {
+  .cert-cards-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+@media (max-width: 1024px) {
+  .cert-cards-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+  }
+}
+
+@media (max-width: 680px) {
+  .cert-cards-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+}
+
+/* Individual Certificate Card */
+.cert-gallery-card {
+  background: #ffffff;
+  border-radius: 24px;
+  border: 1px solid rgba(30, 25, 20, 0.08);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease;
+  position: relative;
+  will-change: transform;
+}
+
+.cert-gallery-card:hover {
+  transform: translateY(-8px) scale(1.01);
+  box-shadow: 0 24px 50px rgba(25, 20, 15, 0.1);
+  border-color: rgba(229, 155, 16, 0.4);
+}
+
+/* Image Thumbnail Container */
+.cert-card-image-box {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 11;
+  background: #1a1918;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.cert-card-thumb-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), filter 0.3s ease;
+}
+
+.cert-gallery-card:hover .cert-card-thumb-img {
+  transform: scale(1.04);
+}
+
+.cert-card-image-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0) 40%, rgba(0, 0, 0, 0.45) 100%);
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  padding: 16px;
+  opacity: 0.9;
+  transition: opacity 0.3s ease;
+}
+
+.cert-inspect-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  background: rgba(18, 18, 18, 0.75);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  color: #ffffff;
+  font-family: var(--font-mono, 'Space Grotesk', monospace);
+  font-size: 11px;
+  font-weight: 600;
+  padding: 5px 10px;
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  transition: all 0.2s ease;
+}
+
+.cert-gallery-card:hover .cert-inspect-chip {
+  background: var(--gold, #e59b10);
+  color: #111111;
+  border-color: var(--gold, #e59b10);
+}
+
+/* Settled Issuer Logo Badge (Top-Right of card) */
+.cert-card-target-badge {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  z-index: 5;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Card Content Area */
+.cert-card-content {
+  padding: 24px 22px 20px 22px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.cert-card-meta-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.cert-card-issuer-pill {
+  font-family: var(--font-mono, 'Space Grotesk', monospace);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #925800;
+  background: #fdf5e2;
+  padding: 4px 10px;
+  border-radius: 6px;
+  border: 1px solid rgba(229, 155, 16, 0.25);
+}
+
+.cert-card-year {
+  font-family: var(--font-mono, 'Space Grotesk', monospace);
+  font-size: 12px;
+  color: #7a766e;
+  font-weight: 600;
+}
+
+.cert-card-title {
+  font-family: var(--font-serif, 'Playfair Display', Georgia, serif);
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1.35;
+  color: #121212;
+  margin-bottom: 18px;
+  letter-spacing: -0.015em;
+}
+
+/* "What I learned" Section */
+.cert-learned-section {
+  margin-top: auto;
+  padding-top: 16px;
+  border-top: 1px solid rgba(30, 25, 20, 0.06);
+}
+
+.cert-learned-header {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-mono, 'Space Grotesk', monospace);
+  font-size: 11.5px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--gold, #e59b10);
+  margin-bottom: 12px;
+}
+
+.cert-learned-list {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+}
+
+.cert-learned-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 9px;
+  font-size: 13px;
+  color: #4a4742;
+  line-height: 1.5;
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+.cert-learned-item-check {
+  width: 15px;
+  height: 15px;
+  flex-shrink: 0;
+  margin-top: 2px;
+  color: var(--gold, #e59b10);
+}
+
+/* Card Bottom Verification Links */
+.cert-card-footer {
+  margin-top: 18px;
+  padding-top: 14px;
+  border-top: 1px dashed rgba(30, 25, 20, 0.08);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.cert-verified-tag {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 11.5px;
+  font-weight: 600;
+  color: #16a34a;
+}
+
+.cert-verify-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 12px;
+  font-weight: 600;
+  color: #111111;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.cert-verify-link:hover {
+  color: var(--gold, #e59b10);
+}
+
+/* ==========================================================================
+   FLYING LOGO ANIMATION LAYER
+   ========================================================================== */
+.flying-logo-stage {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1000;
+}
+
+.flying-logo-projectile {
+  position: absolute;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  box-shadow: 0 10px 25px rgba(229, 155, 16, 0.45);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  will-change: transform;
+}
+
+/* ==========================================================================
+   LIGHTBOX MODAL
+   ========================================================================== */
+.cert-lightbox-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(12, 11, 10, 0.88);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  z-index: 2000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 30px;
+  animation: fadeIn 0.25s ease forwards;
+}
+
+.cert-lightbox-dialog {
+  max-width: 1000px;
+  width: 100%;
+  max-height: 94vh;
+  background: #ffffff;
+  border-radius: 28px;
+  overflow: hidden;
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.5);
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  animation: scaleInLightbox 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes scaleInLightbox {
+  from {
+    opacity: 0;
+    transform: scale(0.92);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.cert-lightbox-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 28px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+  background: #fcfbf8;
+}
+
+.lightbox-title-area h3 {
+  font-family: var(--font-serif, 'Playfair Display', Georgia, serif);
+  font-size: 20px;
+  font-weight: 700;
+  color: #111111;
+  margin: 0;
+}
+
+.lightbox-title-area p {
+  font-size: 13px;
+  color: #77746e;
+  margin: 4px 0 0 0;
+}
+
+.lightbox-close-btn {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: #f1efe9;
+  color: #111111;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.lightbox-close-btn:hover {
+  background: #111111;
+  color: #ffffff;
+  transform: scale(1.08);
+}
+
+.cert-lightbox-body {
+  padding: 24px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: #181716;
+}
+
+.lightbox-full-img {
+  max-width: 100%;
+  max-height: 65vh;
+  object-fit: contain;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+}
+
+.cert-lightbox-footer {
+  padding: 16px 28px;
+  background: #fcfbf8;
+  border-top: 1px solid rgba(0, 0, 0, 0.08);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+/* ==========================================================================
+   REDUCED MOTION SUPPORT
+   ========================================================================== */
+@media (prefers-reduced-motion: reduce) {
+  .deck-cards-wrapper.breathing {
+    animation: none !important;
+  }
+  .cert-gallery-card {
+    transition: opacity 0.3s ease !important;
+  }
+  .flying-logo-projectile {
+    display: none !important;
+  }
+}

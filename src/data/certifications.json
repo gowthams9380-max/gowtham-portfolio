@@ -1,0 +1,221 @@
+[
+  {
+    "id": "redhat-java-ee",
+    "title": "Application Development Programming in Java EE (AD183)",
+    "issuer": "Red Hat Academy",
+    "issuerShort": "Red Hat",
+    "issuerInitials": "RH",
+    "category": "Enterprise Software",
+    "year": "2026",
+    "image": "./assets/certifications/redhat-java-ee.png",
+    "verificationUrl": "https://www.credly.com/badges/c9894fcc-5764-4537-aa1c-97eefe321900",
+    "certId": "AD183-RHA",
+    "badgeColor": "#EE0000",
+    "logoType": "redhat",
+    "learned": [
+      "Architecting enterprise-grade Java EE applications using Servlets, JSPs, and EJBs",
+      "Object-relational mapping and data persistence with Java Persistence API (JPA)",
+      "Building robust RESTful web services with security, filters, and transaction management",
+      "Deploying scalable applications on Red Hat JBoss Enterprise Application Platform"
+    ]
+  },
+  {
+    "id": "cisco-modern-ai",
+    "title": "Introduction to Modern AI",
+    "issuer": "Cisco Networking Academy",
+    "issuerShort": "Cisco",
+    "issuerInitials": "CS",
+    "category": "Artificial Intelligence",
+    "year": "2026",
+    "image": "./assets/certifications/cisco-modern-ai.png",
+    "verificationUrl": null,
+    "certId": "9b653249-58d5-4c48-bc1d-7c0f0e9634cb",
+    "badgeColor": "#049FD9",
+    "logoType": "cisco",
+    "learned": [
+      "Foundational principles of modern machine learning, neural networks, and deep learning",
+      "Core techniques in natural language processing (NLP), computer vision, and predictive models",
+      "Responsible AI governance, bias detection, ethics, and safety protocols",
+      "Integrating AI architectures into enterprise infrastructure and data pipelines"
+    ]
+  },
+  {
+    "id": "cisco-c-essentials",
+    "title": "C Essentials 1",
+    "issuer": "Cisco Networking Academy",
+    "issuerShort": "Cisco",
+    "issuerInitials": "CS",
+    "category": "Systems Programming",
+    "year": "2025",
+    "image": "./assets/certifications/cisco-c-essentials.png",
+    "verificationUrl": null,
+    "certId": "0ded082f-df65-4627-a0ab-9df4b1b98763",
+    "badgeColor": "#049FD9",
+    "logoType": "cisco",
+    "learned": [
+      "Low-level memory management, pointer arithmetic, and dynamic heap allocation",
+      "Structured procedural programming, modular function design, and preprocessor macros",
+      "Bitwise operations, binary data representations, and system-level data structures",
+      "Debugging segmentation faults, memory safety vulnerabilities, and compiler optimization"
+    ]
+  },
+  {
+    "id": "cisco-python-essentials",
+    "title": "Python Essentials 1",
+    "issuer": "Cisco Networking Academy & OpenEDG",
+    "issuerShort": "Cisco",
+    "issuerInitials": "CS",
+    "category": "Programming & Scripting",
+    "year": "2025",
+    "image": "./assets/certifications/cisco-python-essentials.png",
+    "verificationUrl": null,
+    "certId": "6eda7e02-a40e-4f96-9138-cf2c2aa73feb",
+    "badgeColor": "#049FD9",
+    "logoType": "cisco",
+    "learned": [
+      "Decomposing complex real-world logic into automated algorithmic procedures in Python 3",
+      "Mastery of Python data structures: lists, dictionaries, tuples, and comprehension expressions",
+      "Utilizing Python Standard Library modules for file I/O, mathematical analysis, and data handling",
+      "PCEP (Certified Entry-Level Python Programmer) industry alignment and unit testing patterns"
+    ]
+  },
+  {
+    "id": "anthropic-claude-101",
+    "title": "Claude 101",
+    "issuer": "Anthropic",
+    "issuerShort": "Anthropic",
+    "issuerInitials": "AN",
+    "category": "Generative AI",
+    "year": "2025",
+    "image": "./assets/certifications/anthropic-claude-101.png",
+    "verificationUrl": null,
+    "certId": "CLAUDE-101",
+    "badgeColor": "#CC785C",
+    "logoType": "anthropic",
+    "learned": [
+      "Core architecture and reasoning paradigms of Claude and large language models",
+      "Advanced prompt engineering: XML tagging, multi-shot examples, and chain-of-thought",
+      "Building software with Claude API: structured JSON output, system prompts, and tool use",
+      "Context window optimization, latency reduction, and hallucination mitigation strategies"
+    ]
+  },
+  {
+    "id": "hackfix-cybersecurity",
+    "title": "Cybersecurity Career Starter Certification (CCSC)",
+    "issuer": "Hack & Fix Academy",
+    "issuerShort": "Hack & Fix",
+    "issuerInitials": "HF",
+    "category": "Cybersecurity",
+    "year": "2025",
+    "image": "./assets/certifications/hackfix-cybersecurity.png",
+    "verificationUrl": null,
+    "certId": "6113-4301-4304-2874",
+    "badgeColor": "#10B981",
+    "logoType": "hackfix",
+    "learned": [
+      "Threat modeling, common vulnerability classifications (OWASP Top 10), and attack vectors",
+      "Endpoint protection, credential security hygiene, and multi-factor authentication systems",
+      "Network perimeter defense, packet sniffing, firewall rules, and port inspection",
+      "Defensive remediation workflows and security compliance best practices"
+    ]
+  },
+  {
+    "id": "infosys-software-engineering",
+    "title": "Software Engineering",
+    "issuer": "Infosys Springboard",
+    "issuerShort": "Infosys",
+    "issuerInitials": "INF",
+    "category": "Software Engineering",
+    "year": "2026",
+    "image": "./assets/certifications/infosys-software-engineering.png",
+    "verificationUrl": "https://verify.onwingspan.com",
+    "certId": "0874e639-66b7-435f",
+    "badgeColor": "#007CC3",
+    "logoType": "infosys",
+    "learned": [
+      "Comprehensive Software Development Life Cycle (SDLC) models and requirement engineering",
+      "Software architectural patterns: layered, microservices, and event-driven design",
+      "Automated unit testing, integration test strategies, and code quality verification",
+      "Version control workflows, release planning, and production change management"
+    ]
+  },
+  {
+    "id": "infosys-agile-devops",
+    "title": "Overview of Agile & DevOps",
+    "issuer": "Infosys Springboard",
+    "issuerShort": "Infosys",
+    "issuerInitials": "INF",
+    "category": "DevOps & Delivery",
+    "year": "2026",
+    "image": "./assets/certifications/infosys-agile-devops.png",
+    "verificationUrl": "https://verify.onwingspan.com",
+    "certId": "INF-AGILE-2026",
+    "badgeColor": "#007CC3",
+    "logoType": "infosys",
+    "learned": [
+      "Agile values, Scrum framework, user story writing, sprint planning, and retrospectives",
+      "Continuous Integration & Continuous Deployment (CI/CD) pipeline design and automation",
+      "DevOps culture, cross-functional collaboration, and automated quality gates",
+      "Infrastructure as Code fundamentals, automated builds, and rapid release cadences"
+    ]
+  },
+  {
+    "id": "infosys-network-protocols",
+    "title": "Network & Host Analysis: Network Protocols",
+    "issuer": "Infosys Springboard",
+    "issuerShort": "Infosys",
+    "issuerInitials": "INF",
+    "category": "Networks & Systems",
+    "year": "2026",
+    "image": "./assets/certifications/infosys-network-protocols.png",
+    "verificationUrl": "https://verify.onwingspan.com",
+    "certId": "INF-NET-2026",
+    "badgeColor": "#007CC3",
+    "logoType": "infosys",
+    "learned": [
+      "In-depth analysis of the OSI 7-layer model and TCP/IP protocol stack mechanics",
+      "Packet capture analysis and protocol diagnostic inspection with Wireshark",
+      "DNS resolution flows, HTTP/HTTPS handshake negotiation, and TLS cryptography",
+      "Host socket architecture, IP subnetting, routing tables, and network troubleshooting"
+    ]
+  },
+  {
+    "id": "techhub-codeathon",
+    "title": "CodeAthon Series-1 (Participation Certificate)",
+    "issuer": "TechHub Bangalore",
+    "issuerShort": "TechHub",
+    "issuerInitials": "TH",
+    "category": "Competitive Programming",
+    "year": "2025",
+    "image": "./assets/certifications/techhub-codeathon.png",
+    "verificationUrl": null,
+    "certId": "THCD153",
+    "badgeColor": "#8B5CF6",
+    "logoType": "techhub",
+    "learned": [
+      "Rapid algorithmic problem solving under timed hackathon pressure and competition",
+      "Collaborative software engineering, git team workflows, and modular codebase design",
+      "Implementing and testing computational algorithms with strict runtime and memory limits",
+      "Presenting functional code solutions to industry evaluators and senior engineers"
+    ]
+  },
+  {
+    "id": "india-inspires-quiz",
+    "title": "India Inspires State-Level Online Quiz Competition",
+    "issuer": "India Inspires / NCET",
+    "issuerShort": "India Inspires",
+    "issuerInitials": "II",
+    "category": "Academic Challenge",
+    "year": "2024",
+    "image": "./assets/certifications/india-inspires-quiz.png",
+    "verificationUrl": null,
+    "certId": "II-QUIZ-2024",
+    "badgeColor": "#F59E0B",
+    "logoType": "indiainspires",
+    "learned": [
+      "State-wide academic competition evaluating technological awareness and computer fundamentals",
+      "Critical analytical reasoning and rapid decision-making across complex technical scenarios",
+      "Recognition of academic and curricular distinction representing NCET Bengaluru"
+    ]
+  }
+]
